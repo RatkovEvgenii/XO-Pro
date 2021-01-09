@@ -13,6 +13,7 @@
 		844974B425A8BAB100A821B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844974B225A8BAB100A821B5 /* Main.storyboard */; };
 		844974B625A8BAB200A821B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 844974B525A8BAB200A821B5 /* Assets.xcassets */; };
 		844974B925A8BAB200A821B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844974B725A8BAB200A821B5 /* LaunchScreen.storyboard */; };
+		848A5A9125AA14EE0035944E /* MainGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848A5A9025AA14EE0035944E /* MainGameView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		844974B525A8BAB200A821B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		844974B825A8BAB200A821B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		844974BA25A8BAB200A821B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		848A5A9025AA14EE0035944E /* MainGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGameView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				844974AC25A8BAB100A821B5 /* AppDelegate.swift */,
 				844974AE25A8BAB100A821B5 /* SceneDelegate.swift */,
 				844974B025A8BAB100A821B5 /* ViewController.swift */,
+				848A5A9025AA14EE0035944E /* MainGameView.swift */,
 				844974B225A8BAB100A821B5 /* Main.storyboard */,
 				844974B525A8BAB200A821B5 /* Assets.xcassets */,
 				844974B725A8BAB200A821B5 /* LaunchScreen.storyboard */,
@@ -140,6 +143,7 @@
 				844974B125A8BAB100A821B5 /* ViewController.swift in Sources */,
 				844974AD25A8BAB100A821B5 /* AppDelegate.swift in Sources */,
 				844974AF25A8BAB100A821B5 /* SceneDelegate.swift in Sources */,
+				848A5A9125AA14EE0035944E /* MainGameView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,10 +297,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "RE.XO-Pro";
+				PRODUCT_BUNDLE_IDENTIFIER = RE.XOPro1.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -312,10 +316,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "RE.XO-Pro";
+				PRODUCT_BUNDLE_IDENTIFIER = RE.XOPro1.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
