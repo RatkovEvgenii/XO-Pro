@@ -25,14 +25,26 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by Evgenii Ratkov" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PUA-Wn-Mcc">
+                                <rect key="frame" x="20" y="826" width="374" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="2xG-q4-kwN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="PUA-Wn-Mcc" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="1NZ-6o-lOC"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xJ7-fz-em7" secondAttribute="trailing" constant="50" id="DGa-D6-pSx"/>
                             <constraint firstItem="xJ7-fz-em7" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="PBQ-nl-8gv"/>
+                            <constraint firstItem="PUA-Wn-Mcc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="SYy-Xn-fkF"/>
                             <constraint firstItem="xJ7-fz-em7" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="TO8-dg-HwG"/>
                             <constraint firstItem="xJ7-fz-em7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="WyV-mb-TPJ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PUA-Wn-Mcc" secondAttribute="trailing" constant="20" id="hnE-RT-0vb"/>
                         </constraints>
                     </view>
                 </viewController>
