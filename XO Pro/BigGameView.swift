@@ -13,53 +13,99 @@ class BigGameView: UIView {
     var smallViews: [[SmallGameView]] = [[SmallGameView(), SmallGameView(), SmallGameView()], [SmallGameView(), SmallGameView(), SmallGameView()], [SmallGameView(), SmallGameView(), SmallGameView()]]
     var selfSize: CGFloat = 0.0
     var CellSize: CGFloat = 0.0
-    var isAvailability: Bool = false
+    var coordinates: (Int, Int) = (0, 0)
+    var isАvailable = true
+    var image: UIImageView? = nil
+    var DOTS_TO_WIN = 3
+    var DOT_EMPTY: Character = "•"
+    var DOT_X: Character = "X"
+    var DOT_O: Character = "O"
+    var SIZE = 3
+    var playerChar: Character = "•"
     
-    
-    
-    override func draw(_ rect: CGRect) {
-//        if isAvailability {
-//            self.layer.backgroundColor = UIColor.gray.cgColor
-//        }
-        var cellSize:CGFloat = selfSize / 3
-            super.draw(rect)
-        guard let context = UIGraphicsGetCurrentContext() else { return }
-                context.setFillColor(UIColor.label.cgColor)
-//        context.stroke(CGRect(x: cellSize, y: 0, width: cellSize, height: selfSize))
-//        context.stroke(CGRect(x: 0, y: cellSize, width: selfSize, height: cellSize))
-        //self.backgroundColor = .green
+    func  isAvailability() -> Bool {
+        if ((!isMapFull()) && (isАvailable)){
+            return true
+        }
+        return false
     }
-    func customInit() {
+    
+    func customInit(line: Int, column: Int) {
+        coordinates = (line, column)
+        image = UIImageView(frame: self.bounds)
+        self.addSubview(image!)
         CellSize = selfSize / 3
         for i in 0..<countOfCells {
             for j in 0..<countOfCells{
-                print(i, " ", j)
                 smallViews[j][i] = SmallGameView(frame: CGRect(x: CellSize * CGFloat(i), y: CellSize * CGFloat(j), width: CellSize, height: CellSize))
-                //smallViews[j][i].backgroundColor = .random2()
-                //smallViews[j][i].selfSize = displayWidth / 3
-                smallViews[j][i].layer.borderWidth = 1
-                smallViews[j][i].configurate()
-                smallViews[j][i].layer.borderColor = UIColor.label.cgColor
+                smallViews[j][i].configurate(line: i, column: j, bigCellcoordinates: coordinates)
                 self.addSubview(smallViews[j][i])
-                //initSmallViews(bigView: BigGameViews[j][i])
+                
             }
         }
     }
     
-    
-    
-}
-extension CGFloat {
-    static func random2() -> CGFloat {
-        return CGFloat(arc4random()) / CGFloat(UInt32.max)
+    func isMapFull() -> Bool {
+        if (playerChar != DOT_EMPTY) {
+            return true
+        }
+        for i in 0..<countOfCells {
+            for j in 0..<countOfCells{
+                if smallViews[j][i].playerChar == DOT_EMPTY {
+                    return false
+                }
+            }
+        }
+        
+        return true
     }
+    
+    func checkLine( x0: Int, y0: Int, vx: Int, vy: Int, symb: Character) -> Bool {
+        if (x0 + DOTS_TO_WIN * vx > SIZE || y0 + DOTS_TO_WIN * vy > SIZE || y0 + DOTS_TO_WIN * vy < -1) {
+            return false }
+        for i in 0..<DOTS_TO_WIN {
+            if (smallViews[y0 + i * vy][x0 + i * vx].playerChar != symb) {
+                return false
+            }
+        }
+        
+        return true
+    }
+    
+    func checkCharToWin (symb: Character) -> Bool {
+        for i in 0..<countOfCells {
+            for j in 0..<countOfCells{
+                if (checkLine(x0: i, y0: j, vx: 1, vy: 0, symb: symb)) {return true}
+                if (checkLine(x0: i, y0: j, vx: 0, vy: 1, symb: symb)) {return true}
+                if (checkLine(x0: i, y0: j, vx: 1, vy: 1, symb: symb)) {return true}
+                if (checkLine(x0: i, y0: j, vx: 1, vy: -1, symb: symb)) {return true}
+            }
+        }
+        return false
+    }
+    
+    func checkWin() {
+        if (checkCharToWin(symb: DOT_O)){
+            playerChar = "O"
+            image?.image = UIImage(named: "icon0")
+            clearSmallIcons()
+        }
+        if (checkCharToWin(symb: DOT_X)){
+            playerChar = "X"
+            image?.image = UIImage(named: "iconX")
+            clearSmallIcons()
+        }
+    }
+    
+    func clearSmallIcons() {
+        for i in 0..<countOfCells {
+            for j in 0..<countOfCells{
+                smallViews[j][i].image?.alpha = 0
+                smallViews[j][i].layer.borderWidth = 0
+                
+            }
+        }
+    }
+    
 }
 
-extension UIColor {
-    static func random2() -> UIColor {
-        return UIColor(red:   .random(),
-                       green: .random(),
-                       blue:  .random(),
-                       alpha: 1.0)
-    }
-}
