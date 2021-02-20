@@ -32,7 +32,7 @@ class BigGameView: UIView {
     
     func customInit(line: Int, column: Int) {
         coordinates = (line, column)
-        image = UIImageView(frame: self.bounds)
+        image = UIImageView(frame: CGRect(x: 2, y: 2, width: selfSize - 4, height: selfSize - 4))
         self.addSubview(image!)
         CellSize = selfSize / 3
         for i in 0..<countOfCells {

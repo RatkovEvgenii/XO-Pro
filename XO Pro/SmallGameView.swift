@@ -15,14 +15,16 @@ class SmallGameView: UIView {
     var isCellEpty = true
     var playerChar: Character = "•"
     var bigCellcoordinates: (Int, Int) = (0, 0)
+    var selfSize: CGFloat = 0
     
     func configurate(line: Int, column: Int, bigCellcoordinates: (Int, Int)) {
+        self.selfSize = self.frame.height
         self.bigCellcoordinates = bigCellcoordinates
         self.line = line
         self.column = column
         self.layer.borderWidth = 1
         self.layer.borderColor = UIColor.label.cgColor
-        image = UIImageView(frame: self.bounds)
+        image = UIImageView(frame: CGRect(x: 2, y: 2, width: selfSize - 4, height: selfSize - 4))
         self.addSubview(image!)
         let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.onTap))
         self.addGestureRecognizer(gesture)
